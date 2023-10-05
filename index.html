@@ -13,29 +13,31 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
-<body class="bg-body-tertiary " data-bs-theme="light">
-    <nav class="navbar navbar-expand py-3 shadow-sm bg-primary">
+<body class="bg-body-tertiary" data-bs-theme="light">
+    <nav class="navbar navbar-expand py-3 shadow-sm bg-body">
         <div class="container-fluid">
-            <a class="navbar-brand shadow rounded-circle p-2 bg-body text-primary bi bi-calculator" href="#"></a>
+            <a class="navbar-brand shadow-sm rounded-circle p-2 bg-primary text-white bi bi-calculator" href="#"></a>
             <div class="collapse navbar-collapse">
-                <a class="navbar-nav btn shadow px-3 rounded-3 bg-body text-primary" href="#">Base Convert</a>
+                <a class="navbar-nav btn shadow-sm px-3 rounded-3 text-white bg-primary" href="#">Base Convert</a>
             </div>
         </div>
     </nav>
     <div class="m-5"></div>
     <div class="container-fluid p-5">
         <div class="card mx-auto shadow " style="max-width: 30rem;">
-             <h1 class="card-header text-center bg-primary text-white ">Base Conversion</h1>
+            <h1 class="card-header text-center bg-primary text-white ">Base Conversion</h1>
             <div class="card-body">
-                <div class="card-text">                 
-                <p class="mx-auto card-body">
-                Convert from <bold class="font-monospace text-danger fw-bold">binary</bold> to <bold class="font-monospace text-danger fw-bold fw-bold">hexadecimal</bold> to <bold
-                    class="font-monospace text-danger fw-bold">decimal</bold> to <bold class="font-monospace text-danger fw-bold">
-                    base1-100+</bold>
-            </p>
+                <div class="card-text">
+                    <p class="mx-auto card-body">
+                        Convert from <span class="font-monospace text-danger fw-bold">binary</span> to <span
+                            class="font-monospace text-danger fw-bold">hexadecimal</span> to <span
+                            class="font-monospace text-danger fw-bold">decimal</span> to <span
+                            class="font-monospace text-danger fw-bold">
+                            base2+</span>
+                    </p>
                     <div class="mx-auto rounded-2 shadow-sm border border-1 bg-body-tertiary">
-                           <h5 class="m-3">Input</h5>
-                        <div class="btn-group btn-toolbar btn-outline-primary shadow-sm border-bottom bg-body-tertiary" >
+                        <h5 class="m-3">Input</h5>
+                        <div class="btn-group btn-toolbar btn-outline-primary shadow-sm border-bottom bg-body-tertiary">
                             <input type="radio" class="btn-check" name="inputs" id="binaryInput" checked>
                             <label class="btn p-" for="binaryInput">Binary </label>
                             <input type="radio" class="btn-check " name="inputs" id="hexInput">
@@ -45,9 +47,11 @@
                             <input type="radio" class="btn-check" name="inputs" id="customInput">
                             <label class="btn" for="customInput">Custom</label>
                         </div>
-                        <input type="" name="" id="" placeholder="00000010" class="form-control p-3 bg-body" style= "border: 0px;">
+                        <input type="" name="" id="" placeholder="00000010" class="form-control p-3 bg-body"
+                            style="border: 0px;">
                     </div>
-                    <div class="row"><i class="bi bi-arrow-down-up p-4 text-center" style="font-size:x-large;"></i></div>
+                    <div class="row"><i class="bi bi-arrow-down-up p-4 text-center" style="font-size:x-large;"></i>
+                    </div>
                     <div class=" mx-auto shadow-sm border border-1 rounded-2 bg-body-tertiary">
                         <h5 class="m-3">Result</h5>
                         <div class="btn-outline-primary btn-group btn-toolbar shadow-sm border-bottom bg-body-tertiary">
@@ -60,7 +64,8 @@
                             <input type="radio" class="btn-check" name="outputs" id="customOutput">
                             <label class="btn" for="customOutput">Custom</label>
                         </div>
-                        <input name="" id="" class="form-control p-3 bg-body" placeholder="2" readonly style="border: 0px"></input>
+                        <input name="" id="" class="form-control p-3 bg-body" placeholder="2" readonly
+                            style="border: 0px"></input>
                     </div>
                 </div>
             </div>
