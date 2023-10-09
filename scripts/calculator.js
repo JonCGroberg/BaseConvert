@@ -1,5 +1,4 @@
-export {convertBaseXtoBaseY};
-
+export {convertBaseXtoBaseY}
 //Eg: hexidecimal -> digitlist.slice(0,15)
 const digitList = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
@@ -28,7 +27,7 @@ function encode(num, digitList) {
 function convertToBase(number, destinationNumberSystem) {
   let destinationBase = destinationNumberSystem.length;
   let newNumber = [];
-  let realNumber = Number(number.join(""));
+  let realNumber = Number(number);
   let leftOver = realNumber;
   let largestIndex = 1;
 
@@ -45,7 +44,7 @@ function convertToBase(number, destinationNumberSystem) {
     leftOver -= times * i;
     // console.log(times + " in the " + i + " place | remainder: " + leftOver);
   }
-  return newNumber.join("");
+  return newNumber;
 }
 //converts baseX -> base10
 function convertToBase10(number, currentNumberSystem) {
@@ -60,20 +59,21 @@ function convertToBase10(number, currentNumberSystem) {
   return newNumber;
 }
 
+////FIX 15 15 15 becoming one string
 //decodes & converts baseX -> baseX & encodes
 function convertBaseXtoBaseY(number, currentbase, destinationBase) {
-  let decodedNum, result, encodedResult;
-  let currentNumberSystem = digitList.slice(0,currentbase-1)
-  let destinationNumberSystem = digitList.slice(0,destinationBase)
+  let decodedNum, base10Num, result, encodedResult;
+  let currentNumberSystem = digitList.slice(0,currentbase);
+  let destinationNumberSystem = digitList.slice(0,destinationBase);
 
   decodedNum = decode(number, currentNumberSystem);
-  if (currentbase == 10) {
-    result = convertToBase(decodedNum, destinationNumberSystem);
-  } else {
-    let base10Num = convertToBase10(decodedNum, currentNumberSystem);
-    result = convertToBase10(base10Num, destinationNumberSystem);
-  }
+  base10Num = decodedNum;
+  if (currentbase==10) base10Num=convertToBase10(decodedNum,currentNumberSystem)
+
+  result = convertToBase(base10Num, destinationNumberSystem);
   encodedResult = encode(result, destinationNumberSystem)
+  console.log(base10Num,result,encodedResult);
   return encodedResult.join("")
 }
 
+console.log(convertBaseXtoBaseY("4095",10,16));
