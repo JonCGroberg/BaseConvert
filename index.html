@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <div class="rounded-3 m-0 p-1 shadow bg-primary text-white border border-primary border-2" style="max-height: 3rem;">
-                    <i class="bi bi-calculator-fill px-1"></i>
+                    <i class="bi bi-calculator-fill px-1"></i> 
                 </div>
             </a>
             <div class="collapse navbar-collapse">
@@ -29,52 +29,54 @@
     </nav>
     <div class="container-fluid my-5">
         <div class="card mx-auto shadow border" style="max-width: 30rem;">
-            <h1 class="card-header text-center bg-primary text-white ">Base Conversion</h1>
+            <h1 class="card-header text-center bg-primary text-white "> Base Conversion</h1>
             <div class="card-body">
                 <div class="card-text">
                     <p class="mx-auto card-body">
-                        Convert from <span class="font-monospace text-danger fw-bold">binary</span> to <span
+                        Convert from <span class="font-monospace text-danger fw-bold">base1</span> to <span class="font-monospace text-danger fw-bold">binary</span> to <span
                             class="font-monospace text-danger fw-bold">hexadecimal</span> to <span
                             class="font-monospace text-danger fw-bold">decimal</span> to <span
                             class="font-monospace text-danger fw-bold">
-                            base2+</span>
+                            base35</span>
                     </p>
                     <div class="mx-auto rounded-2 shadow-sm border border-1 bg-body-tertiary">
                         <h5 class="m-3">Input</h5>
                         <div class="btn-group btn-toolbar btn-outline-primary shadow-sm border-bottom bg-body-tertiary">
-                            <input type="radio" class="btn-check" name="inputs" id="binaryInput" checked>
-                            <label class="btn p-" for="binaryInput">Binary </label>
-                            <input type="radio" class="btn-check " name="inputs" id="hexInput">
+                            <input type="radio" class="btn-check" name="inputs" id="binaryInput" baseValue="2" checked>
+                            <label class="btn" for="binaryInput">Binary</label>
+                            <input type="radio" class="btn-check " name="inputs" id="hexInput" baseValue="16">
                             <label class="btn" for="hexInput">Hex</label>
-                            <input type="radio" class="btn-check" name="inputs" id="decimalInput">
+                            <input type="radio" class="btn-check" name="inputs" id="decimalInput" baseValue="10">
                             <label class="btn" for="decimalInput">Decimal</label>
-                            <input type="radio" class="btn-check" name="inputs" id="customInput">
+                            <input type="radio" class="btn-check" name="inputs" id="customInput" baseValue="10">
                             <label class="btn" for="customInput">Custom</label>
                         </div>
-                        <input type="" name="" id="" placeholder="00000010" class="form-control p-3 bg-body"
+                        <input type="text" name="inputs" id="input" placeholder="00000010" class="form-control p-3 bg-body"
                             style="border: 0px;">
                     </div>
                     <div class="row"><i class="bi bi-arrow-down-up p-4 text-center" style="font-size:x-large;"></i>
                     </div>
-                    <div class=" mx-auto shadow-sm border border-1 rounded-2 bg-body-tertiary">
+                    <div class="mx-auto shadow-sm border border-1 rounded-2 bg-body-tertiary">
                         <h5 class="m-3">Result</h5>
                         <div class="btn-outline-primary btn-group btn-toolbar shadow-sm border-bottom bg-body-tertiary">
-                            <input type="radio" class="btn-check" name="outputs" id="binaryOutput">
+                            <input type="radio" class="btn-check" name="outputs" id="binaryOutput" baseValue="2">
                             <label class="btn btn-" for="binaryOutput">Binary</label>
-                            <input type="radio" class="btn-check" name="outputs" id="hexOutput">
+                            <input type="radio" class="btn-check" name="outputs" id="hexOutput" baseValue="16">
                             <label class="btn" for="hexOutput">Hex</label>
-                            <input type="radio" class="btn-check" name="outputs" id="decimalOutput" checked>
+                            <input type="radio" class="btn-check" name="outputs" id="decimalOutput" baseValue="10" checked>
                             <label class="btn" for="decimalOutput">Decimal</label>
-                            <input type="radio" class="btn-check" name="outputs" id="customOutput">
+                            <input type="radio" class="btn-check" name="outputs" id="customOutput" baseValue="10">
                             <label class="btn" for="customOutput">Custom</label>
                         </div>
-                        <input name="" id="" class="form-control p-3 bg-body" placeholder="2" readonly
-                            style="border: 0px"></input>
+                        <input readonly type="text" name="outputs" id="output" placeholder="2" class="form-control-plaintext p-3 bg-body"
+                        style="border: 0px;">
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
+    
 </body>
 
 </html>
