@@ -1,41 +1,41 @@
 export {convertBaseXtoBaseY}
-//Eg: hexidecimal -> digitlist.slice(0,15)
-const digitList = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+const digitList = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"] //Eg: hexidecimal -> digitlist.slice(0,15)
 
-//takes baseX number & respective baseX number system -> returns array of base10 values for each digit
-function decode(num, digitList) {
+//Decodes each digit by index: F = 15th digit = 15
+function decode(num, currentNumSystem) {
   let decodedNum = [];
   for (let i = 0; i < num.length; i++) {
-    for (let j = 0; j < digitList.length; j++) {
-      if (num[i] == digitList[j]) {
-        decodedNum[i] = j; //return base10 value (F -> 15 where F is the 15th digit)
+    for (let j = 0; j < currentNumSystem.length; j++) {
+      if (num[i] == currentNumSystem[j]) {
+        decodedNum[i] = j; 
         break;
       }
     }
   }
-  return decodedNum; //combine the array of string into one string
+  return decodedNum;
 }
-//takes base10 number & baseX number system -> array of baseX digits
-function encode(num, digitList) {
-  let encodedNum = [];
-  for (let i = 0; i < num.length; i++) {
-    encodedNum[i] = digitList[num[i]];
+//Converts array of base10 numbers -> single base10 number
+function convertToBase10(number, currentNumSystem) {
+  let destinationBase = currentNumSystem.length;
+  let newNumber = 0;
+  let index = destinationBase ** (number.length - 1);
+
+  for (let i = 0; i < number.length; i++) {
+    newNumber += number[i] * index;
+    index /= destinationBase; // eg 64 -> 32 -> 8 -> 4 -> 2 -> 1
   }
-  return encodedNum;
+  return newNumber;
 }
-//converts base10 -> baseX
-function convertToBase(number, destinationNumberSystem) {
-  let destinationBase = destinationNumberSystem.length;
+//converts base10 number -> array of digits representing base X
+function convertToBase(number, destinationNumSystem) {
+  let destinationBase = destinationNumSystem.length;
   let newNumber = [];
-  let realNumber = Number(number);
-  let leftOver = realNumber;
+  let leftOver = number;
   let largestIndex = 1;
 
-  // console.log("Index's");
-  for (let i = 1; i < realNumber; i *= destinationBase) {
-    // console.log(i);
+  for (let i = 1; i < number; i *= destinationBase) {
     largestIndex = i;
-  }
+  }// use < becuase 99 can still be written using 10's place but 100 cannot
 
   for (let i = largestIndex; i >= 1; i /= destinationBase) {
     let remainder = leftOver % i;
@@ -46,34 +46,34 @@ function convertToBase(number, destinationNumberSystem) {
   }
   return newNumber;
 }
-//converts baseX -> base10
-function convertToBase10(number, currentNumberSystem) {
-  let destinationBase = currentNumberSystem.length;
-  let newNumber = 0;
-  let index = destinationBase ** (number.length - 1);
-
-  for (let i = 0; i < number.length; i++) {
-    newNumber += number[i] * index;
-    index /= destinationBase;
+//takes base10 number & baseX number system -> array of baseX digits
+function encode(num, digitList) {
+  let encodedNum = [];
+  for (let i = 0; i < num.length; i++) {
+    encodedNum[i] = digitList[num[i]];
   }
-  return newNumber;
+  return encodedNum;
 }
-
-////FIX 15 15 15 becoming one string
 //decodes & converts baseX -> baseX & encodes
 function convertBaseXtoBaseY(number, currentbase, destinationBase) {
   let decodedNum, base10Num, result, encodedResult;
-  let currentNumberSystem = digitList.slice(0,currentbase);
-  let destinationNumberSystem = digitList.slice(0,destinationBase);
+  let currentNumSystem = digitList.slice(0,currentbase);
+  let destinationNumSystem = digitList.slice(0,destinationBase);
 
-  decodedNum = decode(number, currentNumberSystem);
-  base10Num = decodedNum;
-  if (currentbase==10) base10Num=convertToBase10(decodedNum,currentNumberSystem)
-
-  result = convertToBase(base10Num, destinationNumberSystem);
-  encodedResult = encode(result, destinationNumberSystem)
-  console.log(base10Num,result,encodedResult);
+  decodedNum = decode(number, currentNumSystem);
+  base10Num = convertToBase10(decodedNum,currentNumSystem);
+  result = convertToBase(base10Num, destinationNumSystem);
+  encodedResult = encode(result, destinationNumSystem)
+  console.log(decodedNum,base10Num,result,encodedResult);
   return encodedResult.join("")
 }
 
-console.log(convertBaseXtoBaseY("4095",10,16));
+
+// TESTING CASES
+// (convertBaseXtoBaseY("4095",10,16));
+// (convertBaseXtoBaseY("FFF",16,10));
+// (convertBaseXtoBaseY("4095",10,10));
+// (convertBaseXtoBaseY("111111111111",2,10));
+// (convertBaseXtoBaseY("4095",10,2));
+// (convertBaseXtoBaseY("FFF",16,2));
+// (convertBaseXtoBaseY("111111111111",2,16));
