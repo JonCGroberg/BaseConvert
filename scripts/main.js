@@ -1,4 +1,6 @@
 import { convertBaseXtoBaseY } from "./calculator.js";
+
+// Constants
 const digitList = "0123456789abcdefghijklmnopqrstuvwxyz";
 const input = document.getElementById("input");
 const inputs = document.getElementsByName("inputs");
@@ -8,18 +10,17 @@ const convertIcon = document.getElementById("convertIcon");
 const spinnerIcon = document.getElementById("spinnerIcon");
 const toggleBtn = document.getElementById("themeToggle");
 
-let inputBase = document
-  .querySelector("input[type=radio][name=inputs]:checked")
-  .getAttribute("baseValue");
-let outputBase = document
-  .querySelector("input[type=radio][name=outputs]:checked")
-  .getAttribute("baseValue");
+// Variables
+let inputBase = getInputBase();
+let outputBase = getOutputBase();
 
+// Event Handlers
 const inputBaseHandler = function (e) {
-  let newInputBase = e.target.getAttribute("baseValue");
-  input.value= convertBaseXtoBaseY(input.value, inputBase, newInputBase);
-  inputBase = newInputBase;
+  const newInputBase = e.target.getAttribute("baseValue");
+  updateInputValue();
+  setInputBase(newInputBase);
 
+  //regex to set allowed characters to type
   input.setAttribute(
     "oninput",
     "(this.value = this.value.replace(/[^0-" +
@@ -30,21 +31,49 @@ const inputBaseHandler = function (e) {
 };
 
 const outputBaseHandler = function (e) {
-  outputBase = e.target.getAttribute("baseValue");
-
+  const newOutputBase = e.target.getAttribute("baseValue");
+  setOutputBase(newOutputBase);
   calculate();
 };
 
-const calculate = function () {
+// Helper Functions
+function getInputBase() {
+  return document
+    .querySelector("input[type=radio][name=inputs]:checked")
+    .getAttribute("baseValue");
+}
+
+function getOutputBase() {
+  return document
+    .querySelector("input[type=radio][name=outputs]:checked")
+    .getAttribute("baseValue");
+}
+
+function setInputBase(newInputBase) {
+  inputBase = newInputBase;
+}
+
+function setOutputBase(newOutputBase) {
+  outputBase = newOutputBase;
+}
+
+function updateInputValue() {
+  input.value = convertBaseXtoBaseY(input.value, inputBase, getInputBase());
+}
+
+function calculate() {
   output.value = convertBaseXtoBaseY(input.value, inputBase, outputBase);
-  //animate conversion icon
+  animateConversionIcon();
+}
+
+function animateConversionIcon() {
   convertIcon.classList.add("visually-hidden");
   spinnerIcon.classList.remove("visually-hidden");
   sleep(300).then(() => {
     convertIcon.classList.remove("visually-hidden");
     spinnerIcon.classList.add("visually-hidden");
   });
-};
+}
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -53,19 +82,20 @@ function sleep(ms) {
 function toggleTheme() {
   toggleBtn.classList.toggle("bi-moon-fill");
   toggleBtn.classList.toggle("bi-sun-fill");
-  if (document.body.getAttribute("data-bs-theme") == "dark") {
-    document.body.setAttribute("data-bs-theme", "light");
-  } else {
-    document.body.setAttribute("data-bs-theme", "dark");
-  }
+  const currentTheme = document.body.getAttribute("data-bs-theme");
+  document.body.setAttribute(
+    "data-bs-theme",
+    currentTheme === "dark" ? "light" : "dark"
+  );
 }
 
 function attachListeners(array, func) {
-  for (let i = 0; i < array.length; i++) {
-    array[i].addEventListener("change", func);
-  }
+  array.forEach((element) => {
+    element.addEventListener("change", func);
+  });
 }
 
+// Event Listeners
 toggleBtn.addEventListener("click", toggleTheme);
 attachListeners(inputs, inputBaseHandler);
 attachListeners(outputs, outputBaseHandler);
