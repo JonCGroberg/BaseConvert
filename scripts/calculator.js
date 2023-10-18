@@ -1,42 +1,6 @@
 export { convertBaseXtoBaseY };
-const digitList = [
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-]; //Eg: hexidecimal -> digitlist.slice(0,15)
+const digitList = "0123456789abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
+//Eg: hexidecimal -> digitlist.slice(0,15)
 
 //Decodes each digit by index: F = 15th digit = 15
 function decode(num, currentNumSystem) {
@@ -105,12 +69,3 @@ function convertBaseXtoBaseY(number, currentbase, destinationBase) {
   console.log(decodedNum, base10Num, result, encodedResult);
   return encodedResult.join("");
 }
-
-// TESTING CASES
-// (convertBaseXtoBaseY("4095",10,16));
-// (convertBaseXtoBaseY("FFF",16,10));
-// (convertBaseXtoBaseY("4095",10,10));
-// (convertBaseXtoBaseY("111111111111",2,10));
-// (convertBaseXtoBaseY("4095",10,2));
-// (convertBaseXtoBaseY("FFF",16,2));
-// (convertBaseXtoBaseY("111111111111",2,16));

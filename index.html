@@ -23,8 +23,7 @@
     <script src="scripts/calculator.js" type="module"></script>
     <script src="scripts/main.js" type="module"></script>
   </head>
-
-  <body class="bg-body-tertiary" data-bs-theme="light" id="body">
+  <body class="bg-body-tertiary" data-bs-theme="dark" id="body">
     <nav class="navbar navbar-expand-sm py-3 shadow-sm bg-body">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://joncgroberg.github.io">
@@ -56,8 +55,7 @@
             >
           </div>
           <a
-            href="#"
-            id="themeSwitcher"
+            id="themeToggle"
             class="btn bi bi-moon-fill btn-outline-primary shadow"
           ></a>
         </div>
@@ -126,6 +124,7 @@
               <input
                 type="text"
                 name="input"
+                oninput="this.value = this.value.replace(/[^0-1]/g, '');"
                 id="input"
                 placeholder="00000010"
                 class="form-control p-3 bg-body"
