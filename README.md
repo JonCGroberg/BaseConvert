@@ -6,7 +6,7 @@ Web application that converts between binary, hexadecimal, decimal, and any othe
 ## Preview
 
 <p align="center">
-<img src="screenshots/main.png" width="600">
+<img src="screenshots/main.png">
 </p>
 
 ## Tech
