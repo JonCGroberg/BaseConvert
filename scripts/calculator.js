@@ -113,20 +113,3 @@ function convertBaseXtoBaseY(number, currentbase, destinationBase) {
 // (convertBaseXtoBaseY("4095",10,2));
 // (convertBaseXtoBaseY("FFF",16,2));
 // (convertBaseXtoBaseY("111111111111",2,16));
-const input = document.getElementById("input");
-const inputs = document.getElementsByName("inputs");
-const output = document.getElementById("output");
-const outputs = document.getElementsByName("outputs");
-
-let inputBase = document
-  .querySelector("input[type=radio][name=inputs]:checked")
-  .getAttribute("baseValue");
-let outputBase = document
-  .querySelector("input[type=radio][name=outputs]:checked")
-  .getAttribute("baseValue");
-
-const numberHandler = function (e) {
-  output.value = convertBaseXtoBaseY(e.target.value, inputBase, outputBase);
-};
-
-input.addEventListener("input", numberHandler);
