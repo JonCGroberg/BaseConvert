@@ -41,6 +41,7 @@ const digitList = [
 //Decodes each digit by index: F = 15th digit = 15
 function decode(num, currentNumSystem) {
   let decodedNum = [];
+  num=num.toUpperCase();
   for (let i = 0; i < num.length; i++) {
     for (let j = 0; j < currentNumSystem.length; j++) {
       if (num[i] == currentNumSystem[j]) {

@@ -27,22 +27,28 @@
   <body class="bg-body-tertiary" data-bs-theme="light" id="body">
     <nav class="navbar navbar-expand-sm py-3 shadow-sm bg-body">
       <div class="container-fluid">
-         <a class="navbar-brand" href="https://joncgroberg.github.io">
-            <div
-              class="btn shadow btn-outline-primary"
-              style="max-height: 3rem"
+        <a class="navbar-brand" href="https://joncgroberg.github.io">
+          <div class="btn shadow btn-outline-primary" style="max-height: 3rem">
+            <i class="bi bi-arrow-return-left small"></i> more<span
+              class="small d-none d-lg-inline"
             >
-              <i class="bi bi-arrow-return-left small"></i> more<span
-                class="small d-none d-lg-inline"
-              >
-                https://joncgroberg.github.io/</span
-              >
-            </div>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border: 0px;">
-            <span class="bi-list"></span>
-          </button>
-      
+              https://joncgroberg.github.io/</span
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="border: 0px"
+        >
+          <span class="bi-list"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav me-auto">
             <a class="btn shadow px-3 rounded-3 text-white bg-primary" href="#"
@@ -123,14 +129,22 @@
                 id="input"
                 placeholder="00000010"
                 class="form-control p-3 bg-body"
-                style="border: 0px;"
+                style="border: 0px"
               />
             </div>
-            <div class="row">
+            <div class="row text-center py-4 mx-auto">
               <i
-                class="bi bi-arrow-down-up p-4 text-center"
-                style="font-size: x-large"
+                id="convertIcon"
+                class="bi bi-arrow-down-up text-center"
+                style="font-size: x-large; height: 2rem;"
               ></i>
+              <div
+                id="spinnerIcon"
+                class="spinner-border mx-auto visually-hidden"
+                role="status"
+                style="height: 2rem;"
+              >
+              </div>
             </div>
             <div
               class="mx-auto shadow-sm border border-1 rounded-2 bg-body-tertiary"
@@ -180,7 +194,7 @@
                 id="output"
                 placeholder="2"
                 class="form-control-plaintext p-3 bg-body"
-                style="border: 0px;"
+                style="border: 0px"
               />
             </div>
           </div>
