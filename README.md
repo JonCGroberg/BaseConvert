@@ -1,16 +1,22 @@
 # Base Convert
 Web application that converts between binary, hexadecimal, decimal, and any other base
 
-## Live Website
-https://joncgroberg.github.io/baseConvert
+- [Base Convert](#base-convert)
+  * [Preview](#preview)
+  * [Features](#features)
+  * [Tech](#tech)
+  * [Contributing](#contributing)
+  * [License](#license)
 
-## Preview
+## Live Site
+
+> Landing Page [https://joncgroberg.github.io/baseConvert](https://joncgroberg.github.io/baseConvert)
+
+## Features
 
 <p align="center">
 <img src="screenshots/main.png">
 </p>
-
-## Features
 
 - Allows users to **convert** between different number bases
   - binary
