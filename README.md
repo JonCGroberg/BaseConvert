@@ -1,5 +1,6 @@
 # Base Convert
 Web application that converts between binary, hexadecimal, decimal, and any other base using my base convert utility 
+> The base conversion utility provides a set of functions that allow for seamless conversion between different number systems. The code is written in JavaScript and demonstrates proficiency in algorithmic thinking and manipulation of arrays. The utility can be easily integrated into other projects requiring base conversion functionality.
 
 > Demonstration Page [https://joncgroberg.github.io/baseConvert](https://joncgroberg.github.io/baseConvert)
 
@@ -14,7 +15,7 @@ Web application that converts between binary, hexadecimal, decimal, and any othe
 
 # Base Conversion Utility
 This repository contains a base conversion utility implemented in JavaScript. The utility provides functions to convert numbers between different number systems, such as binary, hexadecimal, and decimal.
-- **decode** the number -> **convert**  to base 10 -> **convert**  to the destination base -> **encode** the result
+> **decode** the number -> **convert**  to base 10 -> **convert**  to the destination base -> **encode** the result
 
 ### Usage
 To use the base conversion utility, simply import the convertBaseXtoBaseY function and call it with the appropriate parameters. The function will return the converted number as a string.
@@ -30,6 +31,19 @@ The utility includes the following functions:
 
 ### convertBaseXtoBaseY
 This function takes a number, the current base of the number system, and the destination base of the desired number system. It converts a number from the current base to the destination base and returns the result as a string.
+```javascript
+function convertBaseXtoBaseY(number, currentbase, destinationBase) {
+  let currentNumSystem = digitList.slice(0, currentbase);
+  let destinationNumSystem = digitList.slice(0, destinationBase);
+
+  let decodedNum = decodeNumber(number, currentNumSystem);
+  let base10Num = convertToBase10(decodedNum, currentNumSystem);
+  let result = convertToBase(base10Num, destinationNumSystem);
+  let encodedResult = encodeNumber(result, destinationNumSystem);
+
+  return encodedResult.join("");
+}
+```
 
 ### decodeNumber
 This function decodes a number from a given number system to an array of digits representing the decoded number. It takes a number and the current number system as inputs and returns an array of decoded digits.
@@ -43,8 +57,6 @@ This function converts a base 10 number to an array of digits representing the n
 ### encodeNumber
 This function encodes an array of digits representing a number in the destination number system. It takes an array of numbers and the destination number system as inputs and returns the encoded number.
 
-### Conclusion
-The base conversion utility provides a set of functions that allow for seamless conversion between different number systems. The code is written in JavaScript and demonstrates proficiency in algorithmic thinking and manipulation of arrays. The utility can be easily integrated into other projects requiring base conversion functionality.
 
 ## Tech
 
