@@ -6,7 +6,7 @@ Web application that converts between binary, hexadecimal, decimal, and any othe
 ## Features
 
 <p align="center">
-<img src="screenshots/main.png">
+<img src="screenshots/main.gif">
 </p>
 
 - Allows users to **convert** between different number bases
