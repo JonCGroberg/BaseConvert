@@ -1,9 +1,9 @@
-# Base Convert
+# Base Conversion
 *Web application that converts between binary, hexadecimal, decimal, and any other base using my base convert utility*
 
 > The base conversion utility provides a set of functions that allow for seamless conversion between different number systems. The code is written in JavaScript and demonstrates proficiency in algorithmic thinking and manipulation of arrays. The utility can be easily integrated into other projects requiring base conversion functionality.
 
-> Demonstration Page [https://joncgroberg.github.io/baseConvert](https://joncgroberg.github.io/baseConvert)
+> Demonstration Page [https://joncgroberg.github.io/BaseConversion](https://joncgroberg.github.io/BaseConversion)
 
 <p align="center">
 <img src="screenshots/main.gif">
